@@ -27,11 +27,13 @@
 {
     
     [super viewDidLoad];
-    
-    UIImage *hanging = [UIImage imageNamed: [NSString stringWithFormat:@"Hangman%d.gif", [[HangmanGameLogic sharedInstance] numberOfGuesses]]];
+    NSLog(@"%@", self.message);
+
+    UIImage *hanging = [UIImage imageNamed: [NSString stringWithFormat:@"Hangman%@.gif",self.message]];
+   // NSLog(@"%d", [[HangmanGameLogic sharedInstance] numberOfGuesses]);
     
            UIImageView *hangView = [[UIImageView alloc] initWithImage:hanging];
-            [self.view addSubview:hangView];
+           [self.view addSubview:hangView];
 // [[HangmanGameLogic sharedInstance] currentWord];
     
 	// Do any additional setup after loading the view.

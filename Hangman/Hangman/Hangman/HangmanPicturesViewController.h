@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HangmanGameLogic.h"
 
 @interface HangmanPicturesViewController : UIViewController
 
 @property (strong, nonatomic) NSString  *message;
+@property (strong, nonatomic) HangmanGameLogic *game;
 
 @end

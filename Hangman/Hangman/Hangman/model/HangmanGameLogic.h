@@ -21,7 +21,7 @@
 @property (nonatomic) int howManyLeft;
 
 
-+ (id)sharedInstance;
+//+ (id)sharedInstance;
 
 -(void) callMatch:(NSString *) word;
 

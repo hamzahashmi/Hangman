@@ -31,21 +31,29 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showHangman"]) {
-        //[[segue destinationViewController] setMessage:@"YOYO"];
+        [[segue destinationViewController] setMessage:[NSString stringWithFormat:@"%d", self.game.numberOfGuesses]];
         //NSLog(@"HERE");
 
     }
+}
+-(HangmanGameLogic *)game {
+    if (!_game) {
+        _game = [[HangmanGameLogic alloc] init];
+    }
+    return _game;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.guessBox.delegate = self;
-    self.game = [HangmanGameLogic sharedInstance];
+    //self.game = [HangmanGameLogic sharedInstance];
     [self update];
     
 	// Do any additional setup after loading the view, typically from a nib.
 }
+
+
 
 
 - (IBAction)guessingField:(UITextField *)sender {
@@ -53,6 +61,11 @@
         //NSLog(@"%@", self.guessBox.text);
     [self.game callMatch:self.guessBox.text];
     [self update];
+}
+
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
 }
 
 
