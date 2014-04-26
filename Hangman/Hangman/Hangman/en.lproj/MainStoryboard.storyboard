@@ -79,9 +79,6 @@
                             <constraint firstItem="NK6-Ju-D0Z" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="gbY-II-3C5"/>
                             <constraint firstItem="x98-x6-9jq" firstAttribute="centerX" secondItem="oxq-Tn-g9z" secondAttribute="centerX" type="default" id="tpU-dq-Ygd"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="3kT-Ug-4XS" appends="YES" id="Zn4-28-KGZ"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="M9U-Af-15H"/>
                     <connections>
@@ -90,53 +87,11 @@
                         <outlet property="lettersVisible" destination="NK6-Ju-D0Z" id="qA1-NA-rTX"/>
                         <outlet property="numberOfGuessLeftLabel" destination="2YC-d3-3e4" id="BwJ-wE-aHA"/>
                         <outlet property="resetButton" destination="qwT-Mh-Iy9" id="btm-ys-M98"/>
-                        <segue destination="ukk-pU-2Mp" kind="push" identifier="showHangman" id="t21-Aa-0o5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="left" id="3kT-Ug-4XS">
-                    <connections>
-                        <action selector="handleSwipe:" destination="2" id="5rp-wr-KNb"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="5" y="-31"/>
-        </scene>
-        <!--Hangman Pictures View Controller-->
-        <scene sceneID="qR0-1K-myE">
-            <objects>
-                <viewController id="ukk-pU-2Mp" customClass="HangmanPicturesViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dob-sD-8FP">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pks-qN-xld">
-                                <rect key="frame" x="160" y="241" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstItem="Pks-qN-xld" firstAttribute="top" secondItem="dob-sD-8FP" secondAttribute="top" constant="241" id="1DO-XV-X3k"/>
-                            <constraint firstItem="Pks-qN-xld" firstAttribute="centerX" secondItem="dob-sD-8FP" secondAttribute="centerX" type="default" id="Btc-5u-FfK"/>
-                        </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="TO4-Q3-xAk" appends="YES" id="xGR-va-FQb"/>
-                        </connections>
-                    </view>
-                    <navigationItem key="navigationItem" id="zm3-DG-aGm"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="S4N-oD-Tzl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="TO4-Q3-xAk">
-                    <connections>
-                        <action selector="swipingBack:" destination="ukk-pU-2Mp" id="VVO-BF-tBN"/>
-                    </connections>
-                </swipeGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="510" y="-25"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MsW-wi-qAh">

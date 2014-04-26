@@ -28,6 +28,8 @@
 
 - (IBAction)handleSwipe:(UISwipeGestureRecognizer *)sender {
     
+
+    
     [self performSegueWithIdentifier:@"showHangman" sender:self];
 }
 
@@ -49,6 +51,7 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSLog(@"in this bitch");
     HangmanPicturesViewController *picturesView = [segue destinationViewController];
     
     if (self.guessedLettersSoFar == NULL) {
@@ -113,7 +116,9 @@
                                    action:@selector(resignOnTap)];
     
     [self.view addGestureRecognizer:tap];
+    NSLog(@"%@", self.game.currentWord);
     [self.guessBox becomeFirstResponder];
+
     //self.howManyGuesses.textColor = [UIColor whiteColor];
     [self update];
     
@@ -156,18 +161,27 @@
         [self.guessedLettersSoFar addObject:self.guessedLetter];
     }
 
-    
+    [self checkForWin];
     [self dealWithHangmanImage];
 
 
     if ((self.game.numberOfGuesses) == 15) {
 
-        [self disableEverything];
+        [self disableEverythingInCaseOfLoss];
         
     }
     [self changeBackGroundColor];
     [self.guessBox becomeFirstResponder];
 
+}
+
+-(void) checkForWin {
+    if (self.game.didPlayerWin) {
+        [self disableEverythingInCaseOfWin];
+        
+    }
+    
+    
 }
 
 -(void) dealWithHangmanImage {
@@ -176,12 +190,19 @@
 
 }
 
--(void)disableEverything {
+-(void)disableEverythingInCaseOfLoss {
     self.guessBox.enabled = NO;
     //self.lettersVisible.text = @"GAME OVER";
     self.lettersVisible.text = [NSString stringWithFormat: @"You Lose :( The correct phrase was '%@' ", self.game.currentWord];
 
     
+    
+}
+
+-(void)disableEverythingInCaseOfWin {
+    
+    self.guessBox.enabled = NO;
+        self.lettersVisible.text = [NSString stringWithFormat: @"You WON :) The correct phrase was '%@' ", self.game.currentWord];
     
 }
 

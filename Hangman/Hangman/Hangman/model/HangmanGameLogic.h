@@ -25,5 +25,7 @@
 
 -(void) callMatch:(NSString *) word;
 
+-(BOOL) didPlayerWin;
+
 
 @end

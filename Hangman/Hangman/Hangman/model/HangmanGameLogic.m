@@ -142,6 +142,19 @@ const int MAXIMUMNUMBEROFGUESSES = 15;
 }
 
 
+-(BOOL) didPlayerWin {
+    
+    for (NSString *temp in self.visibleLetters) {
+        if ([temp  isEqual: @"0"]) {
+            return NO;
+        }
+    }
+    return YES;
+    
+    
+}
+
+
 
 -(void)updateCurrGuess {
     //NSLog(@"current:word: %@", self.currentWord);
