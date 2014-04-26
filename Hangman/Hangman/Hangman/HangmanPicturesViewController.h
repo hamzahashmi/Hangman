@@ -13,5 +13,6 @@
 
 @property (strong, nonatomic) NSString  *message;
 @property (strong, nonatomic) HangmanGameLogic *game;
+@property (strong, nonatomic) NSMutableArray *letters;
 
 @end
