@@ -33,6 +33,10 @@
     [self performSegueWithIdentifier:@"showHangman" sender:self];
 }
 
+//- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+//    return NO;
+//}
+
 
 
 -(NSMutableArray *)guessedLettersSoFar {
@@ -80,6 +84,8 @@
     if(self.guessBox.delegate == self) {
         NSLog(@"Iamthedelegate");
     }
+    [self.guessBox endEditing:NO];
+
 
 }
 
@@ -171,7 +177,7 @@
         
     }
     [self changeBackGroundColor];
-    [self.guessBox becomeFirstResponder];
+    //[self.guessBox becomeFirstResponder];
 
 }
 
