@@ -70,9 +70,7 @@
 }
 - (IBAction)textfieldEnded:(id)sender {
     
-    //NSLog(@"In this bitch");
     if (![self.guessBox.text  isEqual: @" "]) {
-        //NSLog(@"THIS BITCH IS CALLED");
         self.guessedLetter = self.guessBox.text;
         [self.game callMatch:self.guessBox.text];
         [self update];
